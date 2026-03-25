@@ -90,7 +90,7 @@ const Collections = () => {
                 setFilterOptions(grouped);
 
                 // Use actual categories for "Shop by collections"
-                setShopByCollections(categoriesData.map(c => c.name));
+                setShopByCollections(Array.isArray(categoriesData) ? categoriesData.map(c => c.name) : []);
 
                 setLoading(false);
             } catch (err) {
