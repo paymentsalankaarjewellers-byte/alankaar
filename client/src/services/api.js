@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-    ? 'http://localhost:5000/api' 
-    : 'https://alankaar.onrender.com/api';
+const API_URL = 'http://103.127.146.232/api';
 
 // Add a request interceptor to include the auth token
 axios.interceptors.request.use(
