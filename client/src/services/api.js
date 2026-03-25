@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://api.alankaarjewellers.com/api';
+const API_URL = 'https://api.alankaarjewellers.com/api';
 
 // Add a request interceptor to include the auth token
 axios.interceptors.request.use(
