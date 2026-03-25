@@ -228,7 +228,7 @@ const Home = () => {
                         }}
                         className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 min-h-[300px]"
                     >
-                        {categories.length > 0 ? categories.slice(0, 6).map((cat, idx) => {
+                        {Array.isArray(categories) && categories.length > 0 ? categories.slice(0, 6).map((cat, idx) => {
                             return (
                                 <motion.div
                                     key={cat.id ?? idx}
