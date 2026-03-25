@@ -272,7 +272,7 @@ const AdminCategories = () => {
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {categories.map(cat => (
+                            {Array.isArray(categories) && categories.map(cat => (
                                 <div key={cat.id} className="flex flex-col group bg-white rounded-3xl border border-gray-100 shadow-sm p-3 hover:shadow-md transition-all overflow-hidden">
                                     <div className="flex gap-4 items-center mb-2">
                                         <div className="relative w-20 h-20 rounded-2xl bg-gray-50 overflow-hidden flex-shrink-0">
@@ -374,7 +374,7 @@ const AdminCategories = () => {
                                             </div>
                                             
                                             <div className="flex flex-wrap gap-2 mb-3">
-                                                {subcategories.map(sc => (
+                                                {Array.isArray(subcategories) && subcategories.map(sc => (
                                                     <span key={sc.id} className="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-gray-200 rounded-full text-[13px] text-gray-700 shadow-sm">
                                                         {sc.name}
                                                         <button onClick={() => handleDeleteSubcategory(sc.id)} className="text-gray-400 hover:text-red-500 hover:scale-110 transition-all">
