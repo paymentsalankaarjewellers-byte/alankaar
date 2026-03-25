@@ -438,7 +438,7 @@ const validateCoupon = async (req, res) => {
 };
 
 // Initialize on load
-initTables().catch(console.error);
+// initTables().catch(console.error);
 
 module.exports = { 
     getAllCategories, createCategory, updateCategory, deleteCategory, 

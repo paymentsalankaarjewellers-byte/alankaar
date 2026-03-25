@@ -4,6 +4,28 @@ const streamifier = require('streamifier');
 
 // Init product_images table
 const initProductImagesTable = async () => {
+    // Ensure products table exists first
+    await db.query(`
+        CREATE TABLE IF NOT EXISTS products (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            category VARCHAR(100) NOT NULL,
+            subcategory VARCHAR(100),
+            price DECIMAL(10, 2),
+            weight VARCHAR(50),
+            description TEXT,
+            image_url TEXT,
+            stock_quantity INTEGER DEFAULT 0,
+            design VARCHAR(100),
+            jewel_type VARCHAR(100),
+            style VARCHAR(100),
+            occasions VARCHAR(100),
+            color VARCHAR(100),
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+    `);
+
+    // Then create product_images
     await db.query(`
         CREATE TABLE IF NOT EXISTS product_images (
             id SERIAL PRIMARY KEY,
@@ -14,7 +36,7 @@ const initProductImagesTable = async () => {
         );
     `);
 };
-initProductImagesTable().catch(console.error);
+// initProductImagesTable().catch(console.error);
 
 // Upload a single file buffer to Cloudinary
 const uploadBuffer = (buffer) => {
@@ -179,3 +201,5 @@ exports.deleteProductImage = async (req, res) => {
         res.status(500).json({ error: 'Failed to delete image' });
     }
 };
+
+exports.initProductImagesTable = initProductImagesTable;

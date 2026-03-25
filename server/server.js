@@ -7,8 +7,14 @@ const productRoutes = require('./routes/products');
 const settingsRoutes = require('./routes/settings');
 const orderRoutes = require('./routes/orders');
 const authRoutes = require('./routes/auth');
+const initializeDatabase = require('./db/initDb');
 
 const app = express();
+
+// Initialize Database
+initializeDatabase().catch(err => {
+    console.error("Database initialization failed at startup:", err);
+});
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
