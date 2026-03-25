@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://103.127.146.232/api';
+const API_URL = 'https://103.127.146.232/api';
 
 // Add a request interceptor to include the auth token
 axios.interceptors.request.use(
