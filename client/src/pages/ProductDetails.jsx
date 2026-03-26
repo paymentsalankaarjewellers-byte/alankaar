@@ -43,7 +43,7 @@ const ProductDetails = () => {
         }
     };
 
-    const isOutOfStock = product ? product.id % 5 === 0 : false;
+    const isOutOfStock = product ? (Number(product.stock_quantity) || 0) <= 0 : false;
     const originalPrice = product?.price ? Math.floor(Number(product.price) * 1.25) : null;
     const discountPercent = product?.price && originalPrice
         ? Math.round(((originalPrice - Number(product.price)) / originalPrice) * 100)
@@ -223,12 +223,36 @@ const ProductDetails = () => {
                                         <span className="font-medium text-gray-700">{product.weight}</span>
                                     </div>
                                 )}
-                                <div className="flex gap-4">
-                                    <span className="text-gray-400 w-24">Purity</span>
-                                    <span className="font-medium text-gray-700">
-                                        {product.category && product.category.includes('Silver') ? '92.5% Sterling Silver' : '22K Gold'}
-                                    </span>
-                                </div>
+                                {product.design && (
+                                    <div className="flex gap-4">
+                                        <span className="text-gray-400 w-24">Design</span>
+                                        <span className="font-medium text-gray-700">{product.design}</span>
+                                    </div>
+                                )}
+                                {product.jewel_type && (
+                                    <div className="flex gap-4">
+                                        <span className="text-gray-400 w-24">Jewel Type</span>
+                                        <span className="font-medium text-gray-700">{product.jewel_type}</span>
+                                    </div>
+                                )}
+                                {product.style && (
+                                    <div className="flex gap-4">
+                                        <span className="text-gray-400 w-24">Style</span>
+                                        <span className="font-medium text-gray-700">{product.style}</span>
+                                    </div>
+                                )}
+                                {product.occasions && (
+                                    <div className="flex gap-4">
+                                        <span className="text-gray-400 w-24">Occasion</span>
+                                        <span className="font-medium text-gray-700">{product.occasions}</span>
+                                    </div>
+                                )}
+                                {product.color && (
+                                    <div className="flex gap-4">
+                                        <span className="text-gray-400 w-24">Color</span>
+                                        <span className="font-medium text-gray-700">{product.color}</span>
+                                    </div>
+                                )}
                                 <div className="flex gap-4">
                                     <span className="text-gray-400 w-24">Item Code</span>
                                     <span className="font-medium text-gray-700 tracking-wider">ALN-{String(product.id).padStart(4, '0')}</span>
