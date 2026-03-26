@@ -84,7 +84,7 @@ const ProductDetails = () => {
                             className={`relative bg-white rounded-3xl overflow-hidden border border-gray-100 aspect-square flex items-center justify-center cursor-zoom-in group shadow-sm ${isZoomed ? 'cursor-zoom-out' : ''}`}
                             onClick={() => setIsZoomed(!isZoomed)}
                         >
-                            <motion.div 
+                            <motion.div
                                 key={selectedImage}
                                 initial={{ opacity: 0.8, scale: 0.98 }}
                                 animate={{ opacity: 1, scale: 1 }}
@@ -138,19 +138,18 @@ const ProductDetails = () => {
                                         <button
                                             key={img.id}
                                             onClick={() => setSelectedImage(img.image_url)}
-                                            className={`relative w-20 md:w-24 aspect-square rounded-[18px] overflow-hidden border-2 transition-all duration-300 ${
-                                                selectedImage === img.image_url 
-                                                ? 'border-[#D4AF37] scale-105 shadow-md' 
-                                                : 'border-transparent bg-white hover:border-gray-200'
-                                            }`}
+                                            className={`relative w-20 md:w-24 aspect-square rounded-[18px] overflow-hidden border-2 transition-all duration-300 ${selectedImage === img.image_url
+                                                    ? 'border-[#D4AF37] scale-105 shadow-md'
+                                                    : 'border-transparent bg-white hover:border-gray-200'
+                                                }`}
                                         >
-                                            <img 
-                                                src={img.image_url} 
-                                                alt="" 
-                                                className={`w-full h-full object-cover p-1 transition-transform duration-500 ${selectedImage === img.image_url ? 'scale-110' : 'group-hover:scale-110'}`} 
+                                            <img
+                                                src={img.image_url}
+                                                alt=""
+                                                className={`w-full h-full object-cover p-1 transition-transform duration-500 ${selectedImage === img.image_url ? 'scale-110' : 'group-hover:scale-110'}`}
                                             />
                                             {selectedImage === img.image_url && (
-                                                <motion.div 
+                                                <motion.div
                                                     layoutId="outline"
                                                     className="absolute inset-0 border-2 border-[#D4AF37] rounded-[16px] pointer-events-none"
                                                 />
@@ -165,159 +164,156 @@ const ProductDetails = () => {
                     {/* Right: Info */}
                     <div className="w-full md:w-[52%] flex flex-col">
 
-                            {/* Category */}
-                            <span className="text-[#D4AF37] uppercase tracking-widest text-xs font-semibold mb-2">{product.category}</span>
+                        {/* Category */}
+                        <span className="text-[#D4AF37] uppercase tracking-widest text-xs font-semibold mb-2">{product.category}</span>
 
-                            {/* Name */}
-                            <h1 className="font-playfair text-[28px] md:text-[36px] font-medium text-[#1A202C] mb-4 leading-tight">
-                                {product.name}
-                            </h1>
+                        {/* Name */}
+                        <h1 className="font-playfair text-[28px] md:text-[36px] font-medium text-[#1A202C] mb-4 leading-tight">
+                            {product.name}
+                        </h1>
 
-                            {/* Price row */}
-                            <div className="flex items-center gap-3 mb-3 flex-wrap">
-                                {product.price && (
-                                    <span className="text-[#D4AF37] font-semibold text-[28px] font-playfair">
-                                        ₹{Number(product.price).toLocaleString('en-IN')}
-                                    </span>
-                                )}
-                                {originalPrice && (
-                                    <span className="text-gray-400 text-lg line-through">
-                                        ₹{originalPrice.toLocaleString('en-IN')}
-                                    </span>
-                                )}
-                                {discountPercent && (
-                                    <span className="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-full">
-                                        {discountPercent}% OFF
-                                    </span>
-                                )}
-                            </div>
+                        {/* Price row */}
+                        <div className="flex items-center gap-3 mb-3 flex-wrap">
+                            {product.price && (
+                                <span className="text-[#D4AF37] font-semibold text-[28px] font-playfair">
+                                    ₹{Number(product.price).toLocaleString('en-IN')}
+                                </span>
+                            )}
+                            {originalPrice && (
+                                <span className="text-gray-400 text-lg line-through">
+                                    ₹{originalPrice.toLocaleString('en-IN')}
+                                </span>
+                            )}
+                            {discountPercent && (
+                                <span className="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-full">
+                                    {discountPercent}% OFF
+                                </span>
+                            )}
+                        </div>
 
-                            {/* Stock Badge */}
-                            <div className="mb-5">
-                                {isOutOfStock ? (
-                                    <span className="bg-red-50 text-red-600 text-xs font-semibold px-3 py-1.5 rounded-full">
-                                        Out of Stock
-                                    </span>
-                                ) : (
-                                    <span className="bg-green-50 text-green-700 text-xs font-semibold px-3 py-1.5 rounded-full">
-                                        In Stock
-                                    </span>
-                                )}
-                            </div>
+                        {/* Stock Badge */}
+                        <div className="mb-5">
+                            {isOutOfStock ? (
+                                <span className="bg-red-50 text-red-600 text-xs font-semibold px-3 py-1.5 rounded-full">
+                                    Out of Stock
+                                </span>
+                            ) : (
+                                <span className="bg-green-50 text-green-700 text-xs font-semibold px-3 py-1.5 rounded-full">
+                                    In Stock
+                                </span>
+                            )}
+                        </div>
 
-                            <div className="w-full h-px bg-gray-200 mb-5" />
+                        <div className="w-full h-px bg-gray-200 mb-5" />
 
-                            {/* Description */}
-                            <div className="mb-5">
-                                <h3 className="font-semibold text-[#1A202C] text-[15px] mb-1.5">Description</h3>
-                                <p className="text-gray-500 leading-relaxed text-[14px]">
-                                    {product.description || "An elegant piece designed to perfection. Experience the luxury of fine craftsmanship with this exquisite addition to our collection."}
-                                </p>
-                            </div>
+                        {/* Description */}
+                        <div className="mb-5">
+                            <h3 className="font-semibold text-[#1A202C] text-[15px] mb-1.5">Description</h3>
+                            <p className="text-gray-500 leading-relaxed text-[14px]">
+                                {product.description || "An elegant piece designed to perfection. Experience the luxury of fine craftsmanship with this exquisite addition to our collection."}
+                            </p>
+                        </div>
 
-                            {/* Product Specs */}
-                            <div className="mb-6 space-y-2 text-sm">
-                                {product.weight && (
-                                    <div className="flex gap-4">
-                                        <span className="text-gray-400 w-24">Weight</span>
-                                        <span className="font-medium text-gray-700">{product.weight}</span>
-                                    </div>
-                                )}
-                                {product.design && (
-                                    <div className="flex gap-4">
-                                        <span className="text-gray-400 w-24">Design</span>
-                                        <span className="font-medium text-gray-700">{product.design}</span>
-                                    </div>
-                                )}
-                                {product.jewel_type && (
-                                    <div className="flex gap-4">
-                                        <span className="text-gray-400 w-24">Jewel Type</span>
-                                        <span className="font-medium text-gray-700">{product.jewel_type}</span>
-                                    </div>
-                                )}
-                                {product.style && (
-                                    <div className="flex gap-4">
-                                        <span className="text-gray-400 w-24">Style</span>
-                                        <span className="font-medium text-gray-700">{product.style}</span>
-                                    </div>
-                                )}
-                                {product.occasions && (
-                                    <div className="flex gap-4">
-                                        <span className="text-gray-400 w-24">Occasion</span>
-                                        <span className="font-medium text-gray-700">{product.occasions}</span>
-                                    </div>
-                                )}
-                                {product.color && (
-                                    <div className="flex gap-4">
-                                        <span className="text-gray-400 w-24">Color</span>
-                                        <span className="font-medium text-gray-700">{product.color}</span>
-                                    </div>
-                                )}
+                        {/* Product Specs */}
+                        <div className="mb-6 space-y-2 text-sm">
+                            {product.weight && (
                                 <div className="flex gap-4">
-                                    <span className="text-gray-400 w-24">Item Code</span>
-                                    <span className="font-medium text-gray-700 tracking-wider">ALN-{String(product.id).padStart(4, '0')}</span>
+                                    <span className="text-gray-400 w-24">Weight</span>
+                                    <span className="font-medium text-gray-700">{product.weight}</span>
                                 </div>
-                            </div>
-
-                            {/* Quantity Selector */}
-                            {!isOutOfStock && (
-                                <div className="mb-5">
-                                    <h3 className="font-semibold text-[#1A202C] text-[15px] mb-2.5">Quantity</h3>
-                                    <div className="flex items-center gap-0 border border-gray-200 rounded-lg w-fit overflow-hidden bg-white">
-                                        <button
-                                            onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                                            className="w-11 h-11 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:text-gray-900 transition-colors"
-                                        >
-                                            <Minus size={16} />
-                                        </button>
-                                        <span className="w-12 text-center font-semibold text-[16px] text-gray-800">{quantity}</span>
-                                        <button
-                                            onClick={() => setQuantity(q => q + 1)}
-                                            className="w-11 h-11 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:text-gray-900 transition-colors"
-                                        >
-                                            <Plus size={16} />
-                                        </button>
-                                    </div>
+                            )}
+                            {product.design && (
+                                <div className="flex gap-4">
+                                    <span className="text-gray-400 w-24">Design</span>
+                                    <span className="font-medium text-gray-700">{product.design}</span>
+                                </div>
+                            )}
+                            {product.jewel_type && (
+                                <div className="flex gap-4">
+                                    <span className="text-gray-400 w-24">Jewel Type</span>
+                                    <span className="font-medium text-gray-700">{product.jewel_type}</span>
+                                </div>
+                            )}
+                            {product.style && (
+                                <div className="flex gap-4">
+                                    <span className="text-gray-400 w-24">Style</span>
+                                    <span className="font-medium text-gray-700">{product.style}</span>
+                                </div>
+                            )}
+                            {product.occasions && (
+                                <div className="flex gap-4">
+                                    <span className="text-gray-400 w-24">Occasion</span>
+                                    <span className="font-medium text-gray-700">{product.occasions}</span>
+                                </div>
+                            )}
+                            {product.color && (
+                                <div className="flex gap-4">
+                                    <span className="text-gray-400 w-24">Color</span>
+                                    <span className="font-medium text-gray-700">{product.color}</span>
                                 </div>
                             )}
 
-                            {/* CTA Buttons */}
-                            <div className="flex flex-col sm:flex-row gap-3 mb-6">
-                                <button
-                                    onClick={handleAddToCart}
-                                    disabled={isOutOfStock}
-                                    className={`flex-1 flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-lg font-semibold text-[15px] transition-all ${isOutOfStock
-                                        ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                                        : 'bg-[#D4AF37] hover:bg-[#c59b27] text-white shadow-md hover:shadow-lg hover:scale-[1.01]'
-                                        }`}
-                                >
-                                    <ShoppingCart size={19} />
-                                    {isOutOfStock ? 'Out of Stock' : 'Add to Cart'}
-                                </button>
+                        </div>
 
-                                <button
-                                    onClick={handleWhatsAppEnquiry}
-                                    className="flex-1 flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-lg border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white font-semibold text-[15px] transition-all"
-                                >
-                                    <MessageCircle size={19} />
-                                    Enquire on WhatsApp
-                                </button>
+                        {/* Quantity Selector */}
+                        {!isOutOfStock && (
+                            <div className="mb-5">
+                                <h3 className="font-semibold text-[#1A202C] text-[15px] mb-2.5">Quantity</h3>
+                                <div className="flex items-center gap-0 border border-gray-200 rounded-lg w-fit overflow-hidden bg-white">
+                                    <button
+                                        onClick={() => setQuantity(q => Math.max(1, q - 1))}
+                                        className="w-11 h-11 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                                    >
+                                        <Minus size={16} />
+                                    </button>
+                                    <span className="w-12 text-center font-semibold text-[16px] text-gray-800">{quantity}</span>
+                                    <button
+                                        onClick={() => setQuantity(q => q + 1)}
+                                        className="w-11 h-11 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                                    >
+                                        <Plus size={16} />
+                                    </button>
+                                </div>
                             </div>
+                        )}
 
-                            <div className="w-full h-px bg-gray-200 mb-5" />
+                        {/* CTA Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                            <button
+                                onClick={handleAddToCart}
+                                disabled={isOutOfStock}
+                                className={`flex-1 flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-lg font-semibold text-[15px] transition-all ${isOutOfStock
+                                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                                    : 'bg-[#D4AF37] hover:bg-[#c59b27] text-white shadow-md hover:shadow-lg hover:scale-[1.01]'
+                                    }`}
+                            >
+                                <ShoppingCart size={19} />
+                                {isOutOfStock ? 'Out of Stock' : 'Add to Cart'}
+                            </button>
 
-                            {/* Trust Badges */}
-                            <div className="space-y-2.5">
-                                {[
-                                    'Handcrafted with premium materials',
-                                    'Free shipping on orders above ₹2,000',
-                                    'Authentic South Indian craftsmanship',
-                                ].map((text, i) => (
-                                    <div key={i} className="flex items-center gap-2 text-[13px] text-gray-500">
-                                        <Check size={14} className="text-green-500 shrink-0" />
-                                        {text}
-                                    </div>
-                                ))}
+                            <button
+                                onClick={handleWhatsAppEnquiry}
+                                className="flex-1 flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-lg border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white font-semibold text-[15px] transition-all"
+                            >
+                                <MessageCircle size={19} />
+                                Enquire on WhatsApp
+                            </button>
+                        </div>
+
+                        <div className="w-full h-px bg-gray-200 mb-5" />
+
+                        {/* Trust Badges */}
+                        <div className="space-y-2.5">
+                            {[
+                                'Handcrafted with premium materials',
+                                'Free shipping on orders above ₹2,000',
+                                'Authentic South Indian craftsmanship',
+                            ].map((text, i) => (
+                                <div key={i} className="flex items-center gap-2 text-[13px] text-gray-500">
+                                    <Check size={14} className="text-green-500 shrink-0" />
+                                    {text}
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -326,4 +322,4 @@ const ProductDetails = () => {
     );
 };
 
-            export default ProductDetails;
+export default ProductDetails;
