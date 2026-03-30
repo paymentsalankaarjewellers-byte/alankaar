@@ -74,8 +74,8 @@ const Contact = () => {
                                 <div>
                                     <h4 className="font-medium text-black mb-1 text-lg">Our Boutique</h4>
                                     <p className="text-gray-500 font-light leading-relaxed">
-                                        Sharmika nagar, Moulali,<br />
-                                        Secunderabad, Telangana 500040
+                                       Flat no. 127, Mahesh nagar, Kapra, ECIL post, Hyderabad 500062
+
                                     </p>
                                 </div>
                             </div>
