@@ -72,7 +72,7 @@ const Contact = () => {
                                     <MapPin size={24} />
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-black mb-1 text-lg">Our Boutique</h4>
+                                    <h4 className="font-medium text-black mb-1 text-lg">Our Shop</h4>
                                     <p className="text-gray-500 font-light leading-relaxed">
                                        Flat no. 127, Mahesh nagar, Kapra, ECIL post, Hyderabad 500062
 
